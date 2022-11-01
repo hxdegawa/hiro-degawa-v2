@@ -3,13 +3,26 @@ import styled from '@emotion/styled'
 type Props = {
   children: React.ReactNode
   interactive?: boolean
+  fixed?: boolean
 }
 
-const Frame: React.FC<Props> = ({ children, interactive }) => {
+const Frame: React.FC<Props> = ({ children, interactive, fixed }) => {
   return (
-    <Viewport style={interactive ? { pointerEvents: 'all' } : undefined}>
-      {children}
-    </Viewport>
+    <>
+      {fixed && (
+        <FixedViewport
+          style={interactive ? { pointerEvents: 'all' } : undefined}
+        >
+          {children}
+        </FixedViewport>
+      )}
+
+      {!fixed && (
+        <Viewport style={interactive ? { pointerEvents: 'all' } : undefined}>
+          {children}
+        </Viewport>
+      )}
+    </>
   )
 }
 
@@ -23,4 +36,15 @@ const Viewport = styled.div`
   top: 0;
   height: 100%;
   width: 100%;
+`
+
+const FixedViewport = styled.div`
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
 `

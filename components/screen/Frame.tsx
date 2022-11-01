@@ -3,7 +3,7 @@ import Viewport from './Viewport'
 
 const Frame = () => {
   return (
-    <Viewport>
+    <Viewport fixed>
       <WedgeMap>
         <Wedge
           style={{ transform: 'rotateZ(0deg)', gridArea: 'a' }}
@@ -33,6 +33,8 @@ const Frame = () => {
 export default Frame
 
 const WedgeMap = styled.div`
+  position: relative;
+  z-index: 50;
   padding: 20px;
   height: 100%;
   width: 100%;

@@ -5,7 +5,7 @@ import Tilt from 'react-parallax-tilt'
 const CircleText = () => {
   return (
     <Viewport interactive>
-      <Tilt>
+      <Tilt gyroscope>
         <Wrapper>
           <Svg viewBox="0 0 500 500" width="500" height="500">
             <defs>

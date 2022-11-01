@@ -14,6 +14,11 @@ export const GlobalStyle = css`
 
   * {
     box-sizing: border-box;
+    cursor: none;
+
+    @media screen and (max-width: 960px) {
+      cursor: auto;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -25,6 +30,7 @@ export const GlobalStyle = css`
     body {
       color: #000;
       background: #fcfcfc;
+      cursor: none;
     }
   }
 `
