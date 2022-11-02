@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
-import { Viewport } from '.'
 import Tilt from 'react-parallax-tilt'
+import { FullWindow } from '~/components/screen'
 
-const CircleText = () => {
+const Hero = () => {
   return (
-    <Viewport interactive>
+    <FullWindow interactive>
       <Tilt gyroscope>
         <Wrapper>
           <Svg viewBox="0 0 500 500" width="500" height="500">
@@ -26,11 +26,14 @@ const CircleText = () => {
           </Svg>
         </Wrapper>
       </Tilt>
-    </Viewport>
+      <LogoWrapper>
+        <Logo src="/assets/main_logo.svg" alt="logo" />
+      </LogoWrapper>
+    </FullWindow>
   )
 }
 
-export default CircleText
+export default Hero
 
 const Wrapper = styled.div`
   position: relative;
@@ -55,4 +58,21 @@ const Svg = styled.svg`
       transform: rotateZ(360deg);
     }
   }
+`
+
+const LogoWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+`
+
+const Logo = styled.img`
+  object-fit: contain;
+  max-width: 50%;
+  z-index: 10;
 `

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import Viewport from './Viewport'
+import Viewport from './FullWindow'
 
-const Frame = () => {
+const Frame: React.FC = () => {
   return (
     <Viewport fixed>
       <WedgeMap>

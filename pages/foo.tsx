@@ -22,7 +22,7 @@ export default function Home() {
         <Hero />
       </TopSection>
       <Entrance id="secondary-bg">
-        <Button mode="link" href="/foo" colorCode='#0000ff'>
+        <Button mode="link" href="/" colorCode="#ff0000">
           ENTER
         </Button>
       </Entrance>
@@ -33,7 +33,7 @@ export default function Home() {
 const TopSection = styled.section`
   display: block;
   position: relative;
-  background-color: #0000ff;
+  background-color: #ff0000;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -43,7 +43,7 @@ const TopSection = styled.section`
 const Entrance = styled.section`
   display: block;
   position: relative;
-  background-color: #0000ff;
+  background-color: #ff0000;
   height: 100vh;
   display: flex;
   justify-content: center;

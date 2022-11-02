@@ -1,3 +1,3 @@
-export { default as Frame } from './Frame'
-export { default as CircleText } from './CircleText'
-export { default as Viewport } from './Viewport'
+export { default as PageFrame } from './PageFrame'
+export { default as FullWindow } from './FullWindow'
+export { default as PageTransition } from './PageTransition'
