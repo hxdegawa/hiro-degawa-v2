@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@types/contrast-color": "^1.0.0",
+    "contrast-color": "^1.0.1",
     "gsap": "^3.11.3",
     "next": "13.0.0",
     "react": "18.2.0",

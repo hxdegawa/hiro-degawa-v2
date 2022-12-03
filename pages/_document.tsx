@@ -1,7 +1,6 @@
 import { Global } from '@emotion/react'
 import { Html, Head, Main, NextScript } from 'next/document'
 import { GlobalStyle } from '~/styles/global'
-import { PageTransition } from '~/components/screen'
 
 export default function Document() {
   return (
@@ -16,9 +15,7 @@ export default function Document() {
       </Head>
       <Global styles={GlobalStyle} />
       <body>
-        <PageTransition>
-          <Main />
-        </PageTransition>
+        <Main />
         <NextScript />
       </body>
     </Html>
