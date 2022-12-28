@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
+import { contrastColor } from 'contrast-color'
 
 type Props = { children: React.ReactNode; colorCode?: string } & (
   | {
@@ -10,19 +11,23 @@ type Props = { children: React.ReactNode; colorCode?: string } & (
   | {
       mode: 'link'
       href: string
+      scroll?: boolean
     }
 )
 
 const Button: React.FC<Props> = (props) => {
+  const bgColor = props.colorCode || '#222'
+  const legibleColor = contrastColor({ bgColor: bgColor })
+
   const InnerBlocks = (
     <>
-      <InnerBlock style={{ backgroundColor: props.colorCode || '#222' }}>
+      <InnerBlock style={{ backgroundColor: bgColor, color: legibleColor }}>
         {props.children}
       </InnerBlock>
-      <InnerBlock style={{ backgroundColor: props.colorCode || '#222' }}>
+      <InnerBlock style={{ backgroundColor: bgColor, color: legibleColor }}>
         {props.children}
       </InnerBlock>
-      <InnerBlock style={{ backgroundColor: props.colorCode || '#222' }}>
+      <InnerBlock style={{ backgroundColor: bgColor, color: legibleColor }}>
         {props.children}
       </InnerBlock>
     </>
@@ -33,7 +38,11 @@ const Button: React.FC<Props> = (props) => {
       return <ButtonOuter onClick={props.onClick}>{InnerBlocks}</ButtonOuter>
 
     case 'link':
-      return <LinkOuter href={props.href}>{InnerBlocks}</LinkOuter>
+      return (
+        <LinkOuter scroll={props.scroll || false} href={`${props.href}`}>
+          {InnerBlocks}
+        </LinkOuter>
+      )
   }
 }
 
@@ -48,21 +57,24 @@ const buttonStyle = css`
   height: fit-content;
   width: fit-content;
 
-  & > *:nth-of-type(1) {
+  & > div:nth-of-type(1),
+  & > button:nth-of-type(1) {
     position: relative;
     top: 0;
     left: 0;
     z-index: 5;
   }
 
-  & > *:nth-of-type(2) {
+  & > div:nth-of-type(2),
+  & > button:nth-of-type(2) {
     top: 10px;
     left: -10px;
     z-index: 4;
     pointer-events: none;
   }
 
-  & > *:nth-of-type(3) {
+  & > div:nth-of-type(3),
+  & > button:nth-of-type(3) {
     top: 20px;
     left: -20px;
     z-index: 3;
@@ -83,7 +95,7 @@ const InnerBlock = styled.div`
   display: block;
   font-size: 16px;
   font-weight: 600;
-  border: solid 2px #fff;
+  border: solid 2px;
   color: #fff;
   letter-spacing: 1px;
   pointer-events: none;

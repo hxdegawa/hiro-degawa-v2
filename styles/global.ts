@@ -15,6 +15,7 @@ export const GlobalStyle = css`
   * {
     box-sizing: border-box;
     cursor: none;
+    text-rendering: geometricPrecision;
 
     @media screen and (max-width: 960px) {
       cursor: auto;
@@ -28,9 +29,10 @@ export const GlobalStyle = css`
     }
 
     body {
-      color: #000;
+      color: #0d0d0d;
       background: #fcfcfc;
       cursor: none;
+      font-size: 16px;
     }
   }
 `

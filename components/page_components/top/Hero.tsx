@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Tilt from 'react-parallax-tilt'
-import { FullWindow } from '~/components/screen'
+import { FullWindow } from '~/components/screen/FullWindow'
 
 const Hero = () => {
   return (
@@ -27,7 +27,7 @@ const Hero = () => {
         </Wrapper>
       </Tilt>
       <LogoWrapper>
-        <Logo src="/assets/main_logo.svg" alt="logo" />
+        <Logo src="/assets/main_logo_white.svg" alt="logo" />
       </LogoWrapper>
     </FullWindow>
   )

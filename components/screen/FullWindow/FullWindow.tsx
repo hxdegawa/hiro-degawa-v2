@@ -34,7 +34,7 @@ const Viewport = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-  height: 100%;
+  height: 100lvh;
   width: 100%;
 `
 
@@ -44,7 +44,7 @@ const FixedViewport = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  height: 100%;
+  height: 100lvh;
   width: 100%;
   z-index: 50;
 `
