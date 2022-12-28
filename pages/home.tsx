@@ -1,37 +1,35 @@
-import { useEffect } from 'react'
 import Head from 'next/head'
-import styled from '@emotion/styled'
-import grained from '~/lib/grained'
-import Button from '~/components/_shared/Button/Button'
-import { Hero } from '~/components/page_components/top'
-import Link from 'next/link'
+import { HomeTemplate } from '~/components/page/Home'
 
-export default function Home() {
-  useEffect(() => {
-    grained('#main-bg')
-  })
+type minimalArticle = {
+  title: string
+  url: string
+}
 
+type Props = {
+  response: minimalArticle[]
+}
+
+const Home: React.FC<Props> = ({ response }) => {
+  console.log(response)
   return (
     <>
       <Head>
         <title>Hiro Degawa</title>
       </Head>
-      <Screen id="main-bg">
-        <Wrapper></Wrapper>
-      </Screen>
+      <HomeTemplate newsHeadlines={response} />
     </>
   )
 }
 
-const Screen = styled.section`
-  display: block;
-  position: relative;
-  background-color: #fff;
-  height: 100vh;
-`
+export default Home
 
-const Wrapper = styled.div`
-  height: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-`
+export async function getStaticProps() {
+  const newsRes = await fetch('http://localhost:3000/api/news', {
+    next: { revalidate: 60 * 30 }, // 30分
+  })
+
+  const { articles } = await newsRes.json()
+
+  return { props: { response: articles } }
+}

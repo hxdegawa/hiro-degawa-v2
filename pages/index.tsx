@@ -4,26 +4,29 @@ import styled from '@emotion/styled'
 import grained from '~/lib/grained'
 import Button from '~/components/_shared/Button/Button'
 import { Hero } from '~/components/page_components/top'
+import { PageFrame } from '~/components/screen/PageFrame'
 
 export default function Home() {
   useEffect(() => {
-    grained('#main-bg')
-    grained('#secondary-bg')
+    grained('#container')
   })
 
   return (
     <>
-      <Head>
-        <title>Hiro Degawa</title>
-      </Head>
-      <TopSection id="main-bg">
-        <Hero />
-      </TopSection>
-      <Entrance id="secondary-bg">
-        <Button mode="link" href="/home" colorCode="#fafafa">
-          ENTER
-        </Button>
-      </Entrance>
+      <PageFrame />
+      <main id="container" style={{ backgroundColor: '#0000ff' }}>
+        <Head>
+          <title>Hiro Degawa</title>
+        </Head>
+        <TopSection id="main-bg">
+          <Hero />
+        </TopSection>
+        <Entrance id="secondary-bg">
+          <Button mode="link" href="/home" colorCode="#fafafa">
+            ENTER
+          </Button>
+        </Entrance>
+      </main>
     </>
   )
 }
@@ -31,7 +34,7 @@ export default function Home() {
 const TopSection = styled.section`
   display: block;
   position: relative;
-  background-color: #fafafa;
+  background-color: transparent;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -41,7 +44,7 @@ const TopSection = styled.section`
 const Entrance = styled.section`
   display: block;
   position: relative;
-  background-color: #fafafa;
+  background-color: transparent;
   height: 100vh;
   display: flex;
   justify-content: center;

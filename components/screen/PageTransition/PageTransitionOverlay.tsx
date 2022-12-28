@@ -95,7 +95,6 @@ export const PageTransitionOverlay: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log('rendered!')
     animate()
   }, [])
 
@@ -105,7 +104,7 @@ export const PageTransitionOverlay: React.FC = () => {
       <Bar ref={bar2} />
       <Bar ref={bar3} />
       <Bar ref={bar4}>
-        <img src="/assets/main_logo.svg" alt="Hiro Degawa logo" />
+        <img src="/assets/main_logo_white.svg" alt="Hiro Degawa logo" />
       </Bar>
       <Bar ref={bar5} />
       <Bar ref={bar6} />
@@ -126,7 +125,7 @@ const Container = styled.div`
   grid-template-rows: repeat(7, 1fr);
   grid-template-columns: 1fr;
   pointer-events: none;
-  z-index: 49;
+  z-index: 51;
 `
 
 const Bar = styled.div`
