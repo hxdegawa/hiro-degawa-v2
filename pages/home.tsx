@@ -11,7 +11,6 @@ type Props = {
 }
 
 const Home: React.FC<Props> = ({ response }) => {
-  console.log(response)
   return (
     <>
       <Head>

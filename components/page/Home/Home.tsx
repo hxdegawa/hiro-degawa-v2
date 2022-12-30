@@ -30,6 +30,8 @@ const HomeTemplate: React.FC<Props> = ({ newsHeadlines }) => {
                 src={'/assets/home/img_catch.jpg'}
                 alt={'Ordinary street'}
                 fill
+                sizes="(max-width: 1280px) 100vw,"
+                priority={true}
               />
             </ImgWrapper>
             <ImgTip>散歩中に撮った、ただの日常風景。 ▲</ImgTip>
@@ -117,7 +119,7 @@ const PhotoCatch = styled(Image)`
 const ImgTip = styled.p`
   text-align: right;
   font-size: 1.1rem;
-  letter-spacing: 1px; ;
+  letter-spacing: 1px;
 `
 
 const SecondSection = styled.section`
@@ -127,7 +129,6 @@ const SecondSection = styled.section`
     padding: 80px 20px;
   }
 `
-
 const TitleWrapper = styled.div`
   display: block;
   width: max-content;

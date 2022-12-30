@@ -22,7 +22,6 @@ export default async function handler(
   )
 
   const { articles } = await newsRes.json()
-  console.log(articles)
   const simplifiedArticles: minimalArticle[] = articles.map((article: any) => {
     return { title: article?.title || '', url: article.url || '' }
   })

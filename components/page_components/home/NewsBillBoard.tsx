@@ -102,6 +102,11 @@ const HorizontalScrolledTextWrapper = styled.div`
     gap: 150px;
     flex-direction: row;
     animation: headline 30s linear infinite;
+    animation-play-state: running;
+
+    &:hover {
+      animation-play-state: paused;
+    }
 
     p {
       font-family: 'Noto Sans JP', sans-serif;
