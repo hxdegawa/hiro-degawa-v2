@@ -18,20 +18,15 @@ const NewsBillBoard: React.FC<Props> = ({ newsHeadlines }) => {
           <p style={{ paddingRight: 10 }}>News headlines:</p>
           <HorizontalScrolledTextWrapper>
             <div>
-              {newsHeadlines.map(({ url, title }) => {
-                return (
-                  <a href={url} target="_blank">
-                    <p key={title}>{title}</p>
-                  </a>
-                )
-              })}
-              {newsHeadlines.map(({ url, title }) => {
-                return (
-                  <a href={url} target="_blank">
-                    <p key={title}>{title}</p>
-                  </a>
-                )
-              })}
+              {[...newsHeadlines, ...newsHeadlines].map(
+                ({ url, title }, key) => {
+                  return (
+                    <a key={key} href={url} rel="noreferrer" target="_blank">
+                      <p>{title}</p>
+                    </a>
+                  )
+                }
+              )}
             </div>
           </HorizontalScrolledTextWrapper>
         </NewsText>

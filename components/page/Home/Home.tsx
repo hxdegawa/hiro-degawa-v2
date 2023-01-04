@@ -29,9 +29,9 @@ const HomeTemplate: React.FC<Props> = ({ newsHeadlines }) => {
               <PhotoCatch
                 src={'/assets/home/img_catch.jpg'}
                 alt={'Ordinary street'}
-                fill
                 sizes="(max-width: 1280px) 100vw,"
                 priority={true}
+                fill
               />
             </ImgWrapper>
             <ImgTip>散歩中に撮った、ただの日常風景。 ▲</ImgTip>

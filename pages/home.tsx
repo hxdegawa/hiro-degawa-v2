@@ -23,8 +23,8 @@ const Home: React.FC<Props> = ({ response }) => {
 
 export default Home
 
-export async function getStaticProps() {
-  const newsRes = await fetch('http://localhost:3000/api/news', {
+export async function getServerSideProps() {
+  const newsRes = await fetch(`${process.env.API_ORIGIN}/news`, {
     next: { revalidate: 60 * 30 }, // 30分
   })
 
